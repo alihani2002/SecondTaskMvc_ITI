@@ -1,0 +1,57 @@
+﻿@model Empolyee
+@{
+    ViewData["Title"] = "NewForm";
+}
+
+<h2 class="container-xl bg-secondary text-white" style="text-align:center; padding:50px; " > Sign in Form</h2>
+
+<form action="/Empolyee/AddToDatabase">
+    <div class="form-group row">
+        <label for="Name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" name="Name" class="form-control" id="Name" placeholder="Name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Address" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text" name="Address" class="form-control" id="Address" placeholder="Address">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Salary" class="col-sm-2 col-form-label">Salary</label>
+        <div class="col-sm-10">
+            <input type="number" name="Salary" class="form-control" id="Salary" placeholder="Salary">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" name="Email" class="form-control" id="Email" placeholder="Email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="Password" class="form-control" id="Password" placeholder="Password">
+        </div>
+    </div>
+
+    <div class="col-auto my-1" >
+        <label class="mr-sm-2" for="office">Office</label>
+        <select name="Office_Id" id="Office_Id" class="custom-select mr-sm-2" >
+            @foreach (Office ins in ViewBag.Office_Id)
+            {
+                <option value="@ins.Id">@ins.Name</option>
+            }
+        </select>
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>

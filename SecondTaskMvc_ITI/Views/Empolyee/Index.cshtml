@@ -1,0 +1,44 @@
+﻿@model List<Empolyee>
+
+@{
+    ViewData["Title"] = "Index";
+    int index = 0;
+}
+
+<h1 class="container-lg text-white bg-black" style=" text-align:center; padding:50px ; ">Form Page </h1>
+
+<hr />
+
+<h3>To add new employee : <a href="/empolyee/NewForm" class="btn btn-outline-success">Add New employee</a> </h3>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Salary</th>
+        <th>Office_Id</th>
+        <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Empolyee emp in Model)
+        {
+        <tr>
+            <td>@(++index + "\t")</td>
+            <td>@(emp.Name + "\t")</td>
+            <td>@(emp.Address + "\t")</td>
+            <td>@(emp.Salary + "\t")</td>
+            <td>@(emp.Office_Id + "\t") </td>
+            <td>@(emp.email + "\t") </td>
+            <td>
+                    <a href="/empolyee/Details/@emp.Id" class="btn btn-outline-primary">Details</a> |
+                    <a href="/empolyee/EditForm/@emp.Id" class="btn btn-outline-primary">Edit</a> |
+                    <a href="/empolyee/Delete/@emp.Id" class="btn btn-outline-primary">Delete</a> |
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
