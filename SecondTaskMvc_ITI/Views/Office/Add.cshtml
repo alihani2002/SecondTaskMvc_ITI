@@ -1,0 +1,43 @@
+﻿@model List<Office>
+@{
+    ViewData["Title"] = "Add";
+}
+
+
+<h1 class="text-primary text-bg-light text-center p-3">Add New Course</h1>
+<div class="text-center">
+    <form action="/Office/AddToDatabase">
+            <div class="mb-3">
+                <label for="Name" class="form-label"> Name</label>
+                <input type="text" id="Name" name="Name" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="Location">Location</label>
+                <input type="text" id="Location" name="Location" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label for="Office" class="form-label">Office</label>
+            @if (Model != null)
+            {
+                <select name="Office_Id" id="Office_Id">
+                    @foreach (Office ins in Model)
+                    {
+                        <option value="@ins.Id">@ins.Name</option>
+                    }
+                </select>
+            }
+            else
+            {
+               <h1> ERRoR </h1>
+            }
+                <br />
+            </div>
+
+            <div class="m-2 text-center">
+                <input type="submit" value="Add" class="btn btn-primary w-75" />
+            </div>
+    </form>
+
+</div>
