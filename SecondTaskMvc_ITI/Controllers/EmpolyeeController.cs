@@ -65,10 +65,7 @@ namespace SecondTaskMvc_ITI.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            {
                 return Content("Employee not found");
-            }
         }
 
         public IActionResult Delete(int id)
